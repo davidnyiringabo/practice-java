@@ -24,7 +24,7 @@ public class LinkedList {
      */
     public void addLast(int item){
         Node node = new Node(item);
-        if(first == null){
+        if(isEmpty()){
             first = last = node;
         }
         else{
@@ -38,7 +38,6 @@ public class LinkedList {
         first = new Node(item);
         first.next = tmp;
     }
-
     public int indexOf(int item){
         int index = 0;
         var current = first;
@@ -53,8 +52,6 @@ public class LinkedList {
         System.out.println("Item not found!");
         return -1;
     }
-
-
     public int contains(int item){
         var current = first;
         while (current != null){
@@ -68,6 +65,26 @@ public class LinkedList {
         return -1;
     }
 
+    public void deleteFirst(){
+        if(isEmpty()){
+            throw new ArithmeticException();
+        }
+        if( first == last){
+            first = last = null;
+            return;
+        }
+
+        var second = first.next;
+        first.next = null;
+        first = second;
+
+    }
+
+    public void deleteLast(){
+//        [10 -> 20 -> 30]
+
+    }
+
     public static void main(String[] args){
         var linkedList = new LinkedList();
         linkedList.addLast(12);
@@ -77,6 +94,8 @@ public class LinkedList {
         linkedList.addLast(56);
         linkedList.addFirst(100);
         linkedList.addLast(12);
+        linkedList.contains(110);
+        linkedList.deleteFirst();
 
         linkedList.indexOf(45);
 

@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class DefaultLinkedLists {
     public static void main(String[] args){
-        LinkedList list = new LinkedList();
+        var list = new LinkedList();
         list.add(12);
         list.add(23);
         list.add(34);
